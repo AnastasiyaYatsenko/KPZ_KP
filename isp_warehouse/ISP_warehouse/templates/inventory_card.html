@@ -1,0 +1,77 @@
+{% extends "authorized_base.html" %}
+{% block content %}
+{% load filename %}
+<!--<form method="post">-->
+    <div class="row">
+        <div class="col-1">
+            <table>
+                <tr>
+                    <th>Найменування</th>
+                    <td>{{inv.inv_type.name}}</td>
+                </tr>
+                <tr>
+                    <th>Документ</th>
+                    {% if not inv.document.name %}
+                    <td>---</td>
+                    {% else %}
+                    <td><a href="{{inv.document.url|default_if_none:'#'}}">{{inv.document|filename}}</a></td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <th>Серійний №</th>
+                    <td>{{inv.serial_num}}</td>
+                </tr>
+                <tr>
+                    <th>Вартість</th>
+                    <td>{{inv.cost}} грн.</td>
+                </tr>
+                <tr>
+                    <th>Місцезнаходження</th>
+                    <td>{{inv.location.name}}</td>
+                </tr>
+                <tr>
+                    <th>Коментар</th>
+                    <td>{{inv.comment}}</td>
+                </tr>
+                <tr>
+                    <th>Постачальник</th>
+                    <td>{{inv.supplier.name}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+<p></p>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            {{ form.docfile }}
+            <input type="submit" value="Завантажити документ" />
+        </div>
+    </form>
+<p>
+    <button><a href="/edit_inv_{{inv.pk}}" class="button">Редагувати</a></button>
+</p>
+    <div class="row">
+        <table>
+            <tr>
+                <th>№</th>
+                <th>Дата</th>
+                <th>Звідки</th>
+                <th>Куди</th>
+                <th>Автор</th>
+                <th>Примітки</th>
+            </tr>
+            {% for op in operations %}
+            <tr>
+                <td>{{op.pk}}</td>
+                <td><a href="/detail_op_{{op.pk}}">{{op.date}}</a></td>
+                <td>{{op.from_place.name}}</td>
+                <td>{{op.destination.name}}</td>
+                <td>{{op.author.name}}</td>
+                <td>{{op.notes}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+<!--</form>-->
+{% endblock %}

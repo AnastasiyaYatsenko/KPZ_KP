@@ -1,0 +1,59 @@
+{% extends "authorized_base.html" %}
+{% block content %}
+<p><button><a href="/add_tr" class="button">Додати транзакцію</a></button></p>
+<form method="post">
+    {% csrf_token %}
+    <div class="row">
+        <table>
+            <tr>
+                <td class="fitwidth">Звідки:</td>
+                <td>{{form.select_location_from}}</td>
+                <td class="fitwidth">Номер:</td>
+                <td>{{form.num}}</td>
+            </tr>
+            <tr>
+                <td class="fitwidth">Куди:</td>
+                <td>{{form.select_location_to}}</td>
+                <td class="fitwidth">Автор:</td>
+                <td>{{form.select_author}}</td>
+            </tr>
+            <tr>
+                <td class="fitwidth">Тип:</td>
+                <td>{{form.select_type}}</td>
+            </tr>
+        </table>
+        <p><input type="submit" value="Фільтр" /></p>
+<!--        <p>{{form.select_location_from}}</p>-->
+<!--        <p>{{form.select_location_to}}</p>-->
+<!--        <p>{{form.select_type}}</p>-->
+<!--        <p>{{form.num}}</p>-->
+<!--        <p>{{form.select_author}}</p>-->
+<!--        <input type="submit" value="Фільтр" />-->
+    </div>
+    <p></p>
+    <table>
+        <tr>
+            <th>№</th>
+            <th>ID</th>
+            <th>Дата</th>
+            <th>Звідки</th>
+            <th>Куди</th>
+            <th>Найменування</th>
+            <th>Автор</th>
+            <th>Примітки</th>
+        </tr>
+        {% for op in operations %}
+        <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{op.pk}}</td>
+            <td><a href="/detail_op_{{op.pk}}">{{op.date}}</a></td>
+            <td>{{op.from_place.name}}</td>
+            <td>{{op.destination.name}}</td>
+            <td>{{op.inventory.inv_type.name}}</td>
+            <td>{{op.author.name}}</td>
+            <td>{{op.notes}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+{% endblock %}

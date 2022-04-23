@@ -1,0 +1,70 @@
+{% extends "authorized_base.html" %}
+{% block content %}
+<div class="row">
+    <strong>Карта операції №{{op.pk}}</strong>
+    <p></p>
+</div>
+<div class="row">
+    <div class="col-6">
+        <table>
+            <tr>
+                <th>Дата</th>
+                <td>{{op.date}}</td>
+            </tr>
+            <tr>
+                <th>Звідки</th>
+                <td>{{op.from_place.name}}</td>
+            </tr>
+            <tr>
+                <th>Куди</th>
+                <td>{{op.destination.name}}</td>
+            </tr>
+            <tr>
+                <th>Автор</th>
+                <td>{{op.author.name}}</td>
+            </tr>
+            <tr>
+                <th>Примітки</th>
+                <td>{{op.notes}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-6">
+        <img src="{{inv.image.url}}">
+    </div>
+</div>
+
+<div class="row">
+<table>
+    <tr>
+        <th>Категорія</th>
+        <th>Назва</th>
+        <th>Серійний №</th>
+        <th>Вартість</th>
+        <th>Місцезнаходження</th>
+        <th>Коментар</th>
+        <th>Постачальник</th>
+    </tr>
+    <tr>
+        <td>{{op.inventory.inv_type.category.name}}</td>
+        <td><a href="/detail_{{op.inventory.pk}}">{{op.inventory.inv_type.name}}</a></td>
+        <td>{{op.inventory.serial_num}}</td>
+        <td>{{op.inventory.cost}}</td>
+        <td>{{op.inventory.location.name}}</td>
+        <td>{{op.inventory.comment}}</td>
+        <td>{{op.inventory.supplier.name}}</td>
+    </tr>
+<!--    {% for inv in inventory %}-->
+<!--    <tr>-->
+<!--        <td>{{inv.type.category.name}}</td>-->
+<!--        <td><a href="/detail_{{inv.pk}}">{{inv.type.name}}</a></td>-->
+<!--        <td>{{inv.serial_num}}</td>-->
+<!--        <td>{{inv.cost}}</td>-->
+<!--        <td>{{inv.location.name}}</td>-->
+<!--        <td>{{inv.comment}}</td>-->
+<!--        <td>{{inv.supplier.name}}</td>-->
+<!--    </tr>-->
+<!--{% endfor %}-->
+</table>
+    </div>
+{% endblock %}

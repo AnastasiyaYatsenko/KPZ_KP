@@ -1,0 +1,16 @@
+{% extends "authorized_base.html" %}
+{% block content %}
+<p style="margin-left:15px"><button><a href="/add_sup" class="button">Додати постачальника</a></button></p>
+<table>
+    <tr>
+        <th>Найменування</th>
+        <th>Примітки</th>
+    </tr>
+    {% for s in suppliers %}
+    <tr>
+        <td><a href="/detail_sup_{{s.pk}}">{{s.name}}</a></td>
+        <td>{{s.notes}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

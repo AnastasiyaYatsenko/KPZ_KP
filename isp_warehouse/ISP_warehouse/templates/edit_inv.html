@@ -1,0 +1,33 @@
+{% extends "authorized_base.html" %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td class="fitwidth">Тип:</td>
+            <td>{{form.type}}</td>
+        </tr>
+        <tr>
+            <td class="fitwidth">Серійний номер:</td>
+            <td>{{form.serial_num}}</td>
+        </tr>
+        <tr>
+            <td class="fitwidth">Вартість (грн.):</td>
+            <td>{{form.cost}}</td>
+        </tr>
+        <tr>
+            <td class="fitwidth">Місцезнаходження:</td>
+            <td>{{form.location}}</td>
+        </tr>
+        <tr>
+            <td class="fitwidth">Постачальник:</td>
+            <td>{{form.supplier}}</td>
+        </tr>
+        <tr>
+            <td class="fitwidth">Примітки:</td>
+            <td>{{form.comment}}</td>
+        </tr>
+    </table>
+    <p><input type="submit" value="Зберегти" /></p>
+</form>
+{% endblock %}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PDF output</title>
+
+    <style>
+        @page {
+            size: "A4";
+            margin: 2.5cm 1.5cm 3.5cm 1.5cm;
+
+            @top-center {
+                content: "ISP склад";
+            }
+
+            @bottom-right {
+                content: "Сторінка " counter(page) " з " counter(pages);
+            }
+        }
+        table {
+            width: 100%;
+            border: 1px solid;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid;
+            border-collapse: collapse;
+            padding: 15px;
+            text-align: left;
+        }
+        h2 {
+            text-align: center;
+        }
+        p {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>{{loc_name}}</h2>
+    <p>Станом на {{date|date:"d.m.Y"}}</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Місцезнаходження</th>
+                <th>ТМЦ</th>
+                <th>Серійний номер</th>
+                <th>Вартість</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for key,value in loc_list.items %}
+        <tr>
+            <td>{{key.0}}</td>
+            <td> </td>
+            <td> </td>
+            <td>{{key.1}} грн.</td>
+        </tr>
+        {% for inv in value %}
+        <tr>
+            <td></td>
+            <td>{{inv.inv_type.name}}</td>
+            <td>№{{inv.serial_num}}</td>
+            <td>{{inv.cost}} грн.</td>
+        </tr>
+        {% endfor %}
+        {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

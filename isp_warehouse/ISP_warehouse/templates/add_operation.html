@@ -1,0 +1,29 @@
+{% extends "authorized_base.html" %}
+{% block content %}
+<form method="post">
+    {% csrf_token %}
+    <table>
+        <tr>
+            <td class="fitwidth">Звідки:</td>
+            <td>{{form.from_place}}</td>
+        </tr>
+        <tr>
+            <td class="fitwidth">Куди:</td>
+            <td>{{form.destination}}</td>
+        </tr>
+        <tr>
+            <td class="fitwidth">ТМЦ:</td>
+            <td>{{form.inventory}}</td>
+        </tr>
+        <tr>
+            <td class="fitwidth">Автор:</td>
+            <td>{{form.author}}</td>
+        </tr>
+        <tr>
+            <td class="fitwidth">Примітки:</td>
+            <td>{{form.notes}}</td>
+        </tr>
+    </table>
+    <p><input type="submit" value="Додати" /></p>
+</form>
+{% endblock %}

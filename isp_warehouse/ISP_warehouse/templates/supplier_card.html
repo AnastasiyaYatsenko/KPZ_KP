@@ -1,0 +1,35 @@
+{% extends "authorized_base.html" %}
+{% block content %}
+<div class="col-6">
+    <table>
+        <tr>
+            <th>Найменування</th>
+            <td>{{sup.name}}</td>
+        </tr>
+        <tr>
+            <th>Адреса</th>
+            <td>{{sup.address}}</td>
+        </tr>
+        <tr>
+            <th>Телефон</th>
+            <td>{{sup.phone}}</td>
+        </tr>
+        <tr>
+            <th>Керівник</th>
+            <td>{{sup.director}}</td>
+        </tr>
+        <tr>
+            <th>E-mail</th>
+            <td>{{sup.email}}</td>
+        </tr>
+        <tr>
+            <th>Веб-сайт</th>
+            <td>{{sup.web}}</td>
+        </tr>
+        <tr>
+            <th>Примітки</th>
+            <td>{{sup.notes}}</td>
+        </tr>
+    </table>
+</div>
+{% endblock %}

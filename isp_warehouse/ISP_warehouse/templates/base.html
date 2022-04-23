@@ -1,0 +1,27 @@
+<!doctype html>
+  <head>
+    <meta charset="utf-8">
+    <title>ISP склад</title>
+
+{% load static %}
+	<link rel="stylesheet" type="text/css" href = "{% static 'warehouse/style.css'%}"/>
+
+  </head>
+  <body>
+
+<div id="header">
+  <div id="main">
+    <div id="navigate">
+      <a href="/"><strong>ISP склад</strong></a>
+      <div class="horizontalgap" style="width:176.55vh"></div>
+      <a href="/logout">Вийти</a>
+    </div>
+    <div>
+    {% block bare_content %}{% endblock bare_content %}
+</div>
+  </div>
+</div>
+
+<div id="footer"><p>&copy; Yatsenko Anastasiia, KNT-129</p></div>
+  </body>
+</html>

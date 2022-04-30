@@ -12,7 +12,9 @@
     <div id="navigate">
       <a href="/"><strong>ISP склад</strong></a>
       <div class="horizontalgap" style="width:172.57vh"></div>
+      {% if user.is_authenticated %}
       <a href="/logout">Вийти</a>
+      {% endif %}
     </div>
   </div>
   <div id="main">

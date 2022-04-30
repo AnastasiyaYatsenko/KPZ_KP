@@ -1,6 +1,6 @@
 {% extends "authorized_base.html" %}
 {% block content %}
-<p><button><a href="/add_tr" class="button">Додати транзакцію</a></button></p>
+<p><button><a href="/add_tr" class="button">Провести операцію</a></button></p>
 <form method="post">
     {% csrf_token %}
     <div class="row">
@@ -23,12 +23,6 @@
             </tr>
         </table>
         <p><input type="submit" value="Фільтр" /></p>
-<!--        <p>{{form.select_location_from}}</p>-->
-<!--        <p>{{form.select_location_to}}</p>-->
-<!--        <p>{{form.select_type}}</p>-->
-<!--        <p>{{form.num}}</p>-->
-<!--        <p>{{form.select_author}}</p>-->
-<!--        <input type="submit" value="Фільтр" />-->
     </div>
     <p></p>
     <table>
@@ -46,7 +40,7 @@
         <tr>
             <td>{{forloop.counter}}</td>
             <td>{{op.pk}}</td>
-            <td><a href="/detail_op_{{op.pk}}">{{op.date}}</a></td>
+            <td><a href="/detail_op_{{op.pk}}">{{op.date|date:"d.m.Y"}}</a></td>
             <td>{{op.from_place.name}}</td>
             <td>{{op.destination.name}}</td>
             <td>{{op.inventory.inv_type.name}}</td>

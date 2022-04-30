@@ -15,9 +15,11 @@
 <button><a href="/pdf_{{loc_name}}" class="button">Експорт до PDF</a></button>
 </p>
 <table>
+        {% if loc_name != "Списано" %}
         <tr>
             <th>{{loc_name}}</th>
         </tr>
+        {% endif %}
         {% for key,value in loc_list.items %}
         <tr>
             <td><div style="margin-left:15px">{{key.0}}</div></td>

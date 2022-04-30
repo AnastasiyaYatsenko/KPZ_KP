@@ -25,7 +25,7 @@ class OperationsFilterForm(forms.Form):
     types_choices = [(type.pk, type.name) for type in Type.objects.all()]
     types_choices.insert(0, (-1, "---"))
     select_type = forms.ChoiceField(choices=types_choices)
-    num = forms.IntegerField(initial='-1')
+    num = forms.IntegerField(min_value=1, required=False)
     who_choices = [(loc.pk, loc.name) for loc in Location.objects.filter(loc_type=worker_type)]
     who_choices.insert(0, (-1, "---"))
     select_author = forms.ChoiceField(choices=who_choices)

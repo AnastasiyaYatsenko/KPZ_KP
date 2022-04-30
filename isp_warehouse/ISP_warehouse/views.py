@@ -125,8 +125,8 @@ class TransactionListView(LoginRequiredMixin, DetailView):
             to_id = int(request.POST['select_location_to'])
             type_id = int(request.POST['select_type'])
             author_id = int(request.POST['select_author'])
-            num = int(request.POST['num'])
-            if num != -1:
+            if request.POST['num'] != '':
+                num = int(request.POST['num'])
                 context = {'operations': Operation.objects.filter(pk=num), 'form': form}
                 return render(request, 'transaction_log.html', context=context)
             from_loc = Location.objects.all()
@@ -300,9 +300,7 @@ class EditInvView(LoginRequiredMixin, CreateView):
 
     def post(self, request, **kwargs):
         form = EditInvForm(request.POST)
-        print('yo')
         if form.is_valid():
-            print('yo')
             inv_id = self.kwargs['inv_id']
             inv = Inventory.objects.get(pk=inv_id)
             inv.inv_type = Type.objects.get(pk=form.cleaned_data['type'])
@@ -359,7 +357,7 @@ class AddTransactionView(LoginRequiredMixin, CreateView):
             from_place = Location.objects.get(pk=form.cleaned_data['from_place'])
             destination = Location.objects.get(pk=form.cleaned_data['destination'])
             inv = Inventory.objects.get(pk=form.cleaned_data['inventory'])
-            author = Location.objects.get(pk=form.cleaned_data['destination'])
+            author = Location.objects.get(pk=form.cleaned_data['author'])
             notes = form.cleaned_data['notes']
             op = Operation(from_place=from_place, destination=destination, inventory=inv, author=author, notes=notes)
             op.save()

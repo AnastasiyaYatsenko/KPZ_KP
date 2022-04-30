@@ -2,7 +2,12 @@
 {% block content %}
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    <table>
+        <tr>
+            <td class="fitwidth">Назва:</td>
+            <td>{{form.name}}</td>
+        </tr>
+    </table>
     <p><input type="submit" value="Додати" /></p>
 </form>
 {% endblock %}

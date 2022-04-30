@@ -1,10 +1,10 @@
 {% extends "authorized_base.html" %}
 {% block content %}
 {% for key, value in catalog.items %}
-  <strong>{{key}}</strong>
+  <div class="category">{{key}}</div>
   {% for type in value %}
-    <p style="margin-left:15px"><a href="/add_inv_{{type.pk}}">{{type.name}}</a></p>
+    <div class="type"><a href="/add_inv_{{type.pk}}">{{type.name}}</a></div>
   {% endfor %}
-  <p style="margin-left:15px"><a href="/add_type_{{key}}">Додати вид ТМЦ</a></p>
+  <div class="type"><a href="/add_type_{{key}}">Додати вид ТМЦ</a></div>
 {% endfor %}
 {% endblock %}

@@ -1,7 +1,7 @@
 body {
   margin:0px;
   padding:0px;
-  background-color:#f0f0f0;
+  background-color:#ccc;
   font-family: Arial;
 }
 
@@ -31,9 +31,9 @@ body {
   float: left;
   color: #f2f2f2;
   text-align: center;
+  font-size: large;
   padding: 14px 16px;
   text-decoration: none;
-  font-size: 13px;
 }
 
 #navigate a:hover {
@@ -48,7 +48,7 @@ body {
 
 #leftmenu {
   float:left;
-  width:18%;
+  width:15%;
   padding:10px;
   border:thin insert;
 }
@@ -56,7 +56,8 @@ body {
 #leftmenu ul {
   list-style-type: none;
   margin: 0;
-  padding: 0;
+  padding: 15px;
+  font-size: 20px;
 }
 
 #leftmenu a {
@@ -68,18 +69,36 @@ body {
 
 #leftmenu a:hover {
   background-color: #eee;
+  font-weight: bold;
+}
+
+.container {
+  padding:10px;
+  width: 80%;
+  float: left;
+}
+
+.login {
+  width: 40%;
+  margin-top: 10%;
+  margin-left: 28%;
+  padding: 10px;
+  text-align: center;
 }
 
 #content {
-  float:left;
-  padding:1%;
+  margin-left: 14px;
+  font-size: 20px;
+  padding: 0px 10px;
 }
 
 #footer {
-  margin:0px;
-  padding:1%;
-  font-size:small;
-  clear:both;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;
+  background-color:#ccc;
+  text-align: center;
 }
 
 textarea {
@@ -92,6 +111,7 @@ table {
   width: 100%;
   overflow: hidden;
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  table-layout:auto;
 }
 
 th,
@@ -101,6 +121,7 @@ td {
   color: black;
   position: relative;
   border: 10px;
+  table-layout:auto;
 }
 
 td.fitwidth {
@@ -112,10 +133,11 @@ input[type="submit"] {
   background-color: #CABAC9;
   color: black;
   padding: 15px 32px;
+  position: center;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 14px;
+  font-size: 16px;
   border-radius: 5px;
 }
 
@@ -123,7 +145,20 @@ div.horizontalgap {
   float: left;
   overflow: hidden;
   height: 1px;
-  width: 0px;
+  width:0;
+}
+
+div.category {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: left;
+  line-height: 2.6;
+}
+
+div.type {
+  margin-left:15px;
+  text-align: left;
+  line-height: 2;
 }
 
 .myfield {
@@ -134,7 +169,7 @@ div.horizontalgap {
   margin: 10px 10px 10px 0;
 }
 
-input[type="text"] {
+input[type="text"], input[type="password"] {
   border:1px solid #ccc;
   border-radius:5px;
   height:25px;
@@ -186,7 +221,7 @@ a:link {
 }
 
 a:visited {
-
+  color: #2D3142;
   text-decoration: none;
 }
 
@@ -205,7 +240,7 @@ button {
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 14px;
+  font-size: 16px;
   border-radius: 5px;
 }
 

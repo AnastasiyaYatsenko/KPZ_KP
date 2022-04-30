@@ -5,11 +5,11 @@
     <p></p>
 </div>
 <div class="row">
-    <div class="col-6">
+    <div>
         <table>
             <tr>
                 <th>Дата</th>
-                <td>{{op.date}}</td>
+                <td>{{op.date|date:"d.m.Y"}}</td>
             </tr>
             <tr>
                 <th>Звідки</th>
@@ -28,9 +28,6 @@
                 <td>{{op.notes}}</td>
             </tr>
         </table>
-    </div>
-    <div class="col-6">
-        <img src="{{inv.image.url}}">
     </div>
 </div>
 
@@ -54,17 +51,6 @@
         <td>{{op.inventory.comment}}</td>
         <td>{{op.inventory.supplier.name}}</td>
     </tr>
-<!--    {% for inv in inventory %}-->
-<!--    <tr>-->
-<!--        <td>{{inv.type.category.name}}</td>-->
-<!--        <td><a href="/detail_{{inv.pk}}">{{inv.type.name}}</a></td>-->
-<!--        <td>{{inv.serial_num}}</td>-->
-<!--        <td>{{inv.cost}}</td>-->
-<!--        <td>{{inv.location.name}}</td>-->
-<!--        <td>{{inv.comment}}</td>-->
-<!--        <td>{{inv.supplier.name}}</td>-->
-<!--    </tr>-->
-<!--{% endfor %}-->
 </table>
     </div>
 {% endblock %}

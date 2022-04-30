@@ -64,7 +64,7 @@
             {% for op in operations %}
             <tr>
                 <td>{{op.pk}}</td>
-                <td><a href="/detail_op_{{op.pk}}">{{op.date}}</a></td>
+                <td><a href="/detail_op_{{op.pk}}">{{op.date|date:"d.m.Y"}}</a></td>
                 <td>{{op.from_place.name}}</td>
                 <td>{{op.destination.name}}</td>
                 <td>{{op.author.name}}</td>

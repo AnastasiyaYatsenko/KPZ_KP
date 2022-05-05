@@ -83,7 +83,7 @@ class InventoryView(LoginRequiredMixin, DetailView):
         inv = Inventory.objects.get(pk=inv_id)
         context = {
             'inv': inv,
-            'operations': Operation.objects.filter(inventory=inv_id)
+            'operations': Operation.objects.filter(inventory=inv_id).order_by('-date')
         }
         return context
 
